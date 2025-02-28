@@ -48,8 +48,10 @@ df['Job Title'] = df['Job Title'].astype('category').cat.codes
 # Display the modified DataFrame with numeric codes
 print("Modified DataFrame with Numeric Codes:")
 print(df.head())
-df.to_excel('ConvertedSalaryData.xlsx')
+# Save the modified DataFrame to an Excel file without headers
+df.to_excel('ConvertedSalaryData.xlsx', header=False, index=False)
 
 # Display the decoding DataFrame to show what each number represents
 print("Decoding DataFrame:")
 print(decoding_df)
+decoding_df.to_excel('DecodingMappings.xlsx')
