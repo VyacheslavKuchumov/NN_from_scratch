@@ -50,6 +50,11 @@ print("Modified DataFrame with Numeric Codes:")
 print(df.head())
 # Save the modified DataFrame to an Excel file without headers
 df.to_excel('ConvertedSalaryData.xlsx', header=False, index=False)
+# split df into 30% test and 70% train
+train = df.sample(frac=0.7, random_state=1)
+test = df.drop(train.index)
+train.to_excel('train.xlsx', header=False, index=False)
+test.to_excel('test.xlsx', header=False, index=False)
 
 # Display the decoding DataFrame to show what each number represents
 print("Decoding DataFrame:")
